@@ -1,0 +1,50 @@
+*{
+	margin: 0px;
+    padding: 0px;
+}
+form{
+	position: static;
+    width: 650px;
+    height: 730px;
+    padding-left: 20px;
+    padding-top: 15px;
+    border-radius: 0px;
+    margin:auto;
+    min-width: 250px;
+    background-image: linear-gradient(rgba(28, 131, 138, 0.842),rgba(40, 135, 212, 0.795))
+}
+
+input[type=text]{
+    width: 250px;
+    height: 25px;
+    font: 18px normal;
+    border-radius: 1px;
+    margin: 4px;
+    border-color: rgba(255, 255, 255, 0.438);
+}
+input[type=email]{
+	width: 250px;
+    height: 25px;
+    font: 18px normal;
+    border-radius: 1px;
+    margin: 4px;
+    border-color: rgba(255, 255, 255, 0.438);
+}
+input[type=password]{
+	width: 250px;
+    height: 25px;
+    font: 18px normal;
+    border-radius: 1px;
+    margin: 4px;
+    border-color: rgba(255, 255, 255, 0.438);
+}
+input[type=submit]{
+    position: relative;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    margin-left: 1%;
+    border: 0px;
+    background-color: rgba(164, 189, 52, 0.945);
+
+}
