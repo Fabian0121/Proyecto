@@ -14,6 +14,7 @@ class Usuario extends Conexion
 	public $contrasenia;
 	public $sexo;
 	//constructor
+	//hola
 	public function __constructuc()
 	{
 		parent::__constructuc();
