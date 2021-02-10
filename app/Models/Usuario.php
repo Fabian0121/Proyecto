@@ -27,6 +27,17 @@ class Usuario extends Conexion
 		$pre-> execute();
 
 	}
+	//Funcion para login
+	static function verificarUsuario($correo,$contrasenia){
+		/*echo "correo";
+		echo "<br> contrasenia";*/
+		$conexion = new Conexion();
+		$pre = mysqli_prepare($conexion->con, "SELECT * FROM usuario_datos WHERE correo = ? AND contrasenia = ? ");
+		$pre-> bind_param("ss",$correo,$contrasenia);
+		$pre-> execute();
+		$resultado = $pre->get_result();
+        return $resultado->fetch_object();
+	}
 
 }
 

@@ -3,7 +3,7 @@ require 'app/Models/Conexion.php';
 require 'app/Models/Usuario.php';
 use UPT\Usuario;
 use UPT\Conexion;
-class UsuarioController
+class UsuarioController 
 {
 	//Esta funcion muestra la vista Registrar
 	function Registro (){
@@ -25,6 +25,29 @@ class UsuarioController
  		$usuario->sexo=$_POST['sexo'];
  		$usuario->crear();
  		
+
+	}
+
+	function login (){
+		require "app/Views/login.php";
+	}
+	function verificarlogin(){
+		if((!isset($_POST["correo"]) || (!isset($_POST["pass"])))){
+
+		}
+
+		$correo=$_POST['correo'];
+ 		$contrasenia=$_POST['pass'];
+
+ 		/*echo "correo";
+ 		echo "<br> pass";*/
+ 		$verificar = Usuario::verificarUsuario($correo,$contrasenia);
+ 		if($verificar){
+            require "app/Views/Inicio.php";
+        }else{
+            $estatus = "Datos incorrectos";
+            require "app/Views/login.php";
+        }
 
 	}
 
