@@ -1,3 +1,4 @@
+
 body{
     background: url(../../public/images/fondo2.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -36,7 +37,7 @@ body{
 
 }
 .form-group textarea{
-    height: 30px;
+    height: 140px;
     font-size: 18px;
     border:0;
     padding-left: 54px;
@@ -71,6 +72,3 @@ button{
 .forgot a{
     color: white;
 }
-
-
-

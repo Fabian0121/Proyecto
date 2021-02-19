@@ -1,0 +1,12 @@
+*{
+	padding: 0;
+
+}
+body{
+    background: url(../../public/images/fondo2.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+.container{
+	margin-top: 30px
+	background-color: #FFFFFF;
+}
