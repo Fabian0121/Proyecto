@@ -15,11 +15,12 @@
 
 </head>
 <?php
+//llamo a la clase Publicacion
     use UPT\Publicacion;
     require_once ("app/Models/Publicacion.php");
-    $conexion= new \UPT\Conexion(); 
+//Por este valor elijo el id, el dato se recive de una URL
     $sesion= $_GET['no'];
-
+//Mando a traer todo lo que me genere la consulta con la condicion dada
     $publicacion = Publicacion::mostrarEP($sesion);
 ?>
 
@@ -33,6 +34,7 @@
             </div>
            
             <?php
+            //con este foreach recorro los datos e inserto en los input
                  foreach ($publicacion as $pos) {
              ?> 
             <form class="col-16" method="post" action="index.php?controller=Publicaciones&action=eliminarPublicacion">
@@ -61,6 +63,7 @@
                 <input type="submit" class="btn btn-danger"> 
             </form>
             <?php
+            //Cierro el foreach que se abrio antes
                 }
              ?> 
             <div class="col-16 forgot">

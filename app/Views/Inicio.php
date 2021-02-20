@@ -23,14 +23,16 @@
 	</nav>
 </header>
 <?php
+//llamamos a la clase que se va a usar Publicacion
 use UPT\Publicacion;
 require_once ("app/Models/Publicacion.php");
-$conexion= new \UPT\Conexion();
+//Mando a traer todo lo que me genere la consulta
 $publicacion = Publicacion::mostrar();
 ?>
 <body>	
 
 <?php
+//con este foreach recorro los datos e inserto en los campos correspondiete
          foreach ($publicacion as $pos) {
      ?> 
  <div class="container h-100">
@@ -47,7 +49,9 @@ $publicacion = Publicacion::mostrar();
          
              <p> Reseña<br><?php echo $pos['contenido']?></p>  
  </div> 
- <?php } ?>
+ <?php //cierro la llave del foreach
+    } 
+    ?>
  
  <a href="index.php?controller=Publicaciones&action=Registro" class="btn-flotante">Nueva Publicacion</a>
 </body>

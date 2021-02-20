@@ -48,14 +48,15 @@ class PublicacionesController
             $publicaciones = new Publicacion();
             //Mandar datps
             $publicaciones->id_post=$_POST['id'];
-            $publicaciones->nombreUsuario=$_POST['nombre_usuario'];
+            $publicaciones->nombreUsuario=$_POST['Usuario'];
             $publicaciones->categoria=$_POST['Categoria'];
             $publicaciones->fecha=$_POST['Fecha'];
             $publicaciones->titulo=$_POST['Titulo'];
-            $publicaciones->calificacion=$_POST['Calificacion'];
             $publicaciones->contenido=$_POST['Opinion'];
+            $publicaciones->calificacion=$_POST['Calificacion'];
             $publicaciones->editarPublicacion();
             header("Location:/Proyecto/index.php?controller=Usuario&action=Perfil");
+
     }
     //Con esta funcion llamo la vista publicacion
     function eliminar(){

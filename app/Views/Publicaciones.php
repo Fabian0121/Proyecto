@@ -24,6 +24,7 @@
             </div>
            
         <?php
+        //Mi dato de session lo guardo en esta variable
         $var=$_SESSION['Usuarios'];
         ?>
             <form class="col-16" method="post" action="index.php?controller=Publicaciones&action=crearPublicacion">

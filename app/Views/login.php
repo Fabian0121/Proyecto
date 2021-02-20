@@ -27,6 +27,7 @@
                 </div>
                 <form class="col-12" method="post" action="index.php?controller=Usuario&action=verificarlogin">
                     <?php
+                        //Mensaje de error cuando se ingresa un dato mal
                         if(isset($estatus)){
                          echo "<h2>$estatus</h2>";
                       }

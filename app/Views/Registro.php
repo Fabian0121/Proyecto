@@ -21,6 +21,7 @@
             </div>
             <h1>Registro </h1> <hr>
             <?php
+            //Manda mensaje si da error o se equivoca
             if(isset($estatus)){
                 echo "<h2>$estatus</h2>";
             }

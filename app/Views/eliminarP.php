@@ -18,11 +18,12 @@
 
 </head>
 <?php
+//llamo a la clase Usuario
 use UPT\Usuario;
 require_once ("app/Models/Usuario.php");
-$conexion= new \UPT\Conexion();
+//Por guardo el dato de usuario
 $sesion= $_SESSION['Usuarios'];
-$usuario = $_GET['no'];
+//Mando a traer todo lo que me genere la consulta con la condicion dada
 $usuario = Usuario::mostrar($sesion);
 
 ?>
@@ -34,6 +35,7 @@ $usuario = Usuario::mostrar($sesion);
                     <img src="public/images/avatar.png" th:src="@{/img/user.png}"/>
                 </div>
                 <?php
+                //con este foreach recorro los datos e inserto en los campos seleccionados
                 foreach ($usuario as $us) {
                     ?>
                     <form class="col-16" method="post" action="index.php?controller=Usuario&action=eliminarPer">
@@ -72,7 +74,7 @@ $usuario = Usuario::mostrar($sesion);
                         <a href="index.php?controller=Usuario&action=Inicio" class="btn btn-success"> Cancelar</a>
                         <input type="submit" class="btn btn-danger">
                     </form>
-                    <?php
+                    <?php //cierro el foreach
                 }
                 ?>
                 <div class="col-12 forgot">

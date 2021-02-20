@@ -25,16 +25,18 @@
 	</nav>
 </header>
 <?php
+//llamo a la clase Usuario
 	use UPT\Usuario;
 	require_once ("app/Models/Usuario.php");
-	$conexion= new \UPT\Conexion();
+//Por este valor guardo el dato de la session
 	$sesion= $_SESSION['Usuarios'];
+//Mando a traer todo lo que me genere la consulta con la condicion dada
 	$usuario = Usuario::mostrar($sesion);
 
 ?>
 <body>
 	<?php
-         
+ //con este foreach recorro los datos e inserto en los campos seleccionados        
          foreach ($usuario as $usua) {
     ?> 
  <div class="container h-100">
@@ -58,18 +60,22 @@
  				<a href="index.php?controller=Usuario&action=eliminar&no=<?php echo $usua['id'] ?>"<button type="button" class="btn btn-warning">Eliminar Perfil </a></button>
 			</div>
  </div> 
- <?php } ?>
+ <?php //se cierra el foreach
+  } 
+?>
  <?php
+ //llamo a la clase Publicacion
 	use UPT\Publicacion;
 	require_once ("app/Models/Publicacion.php");
-	$conexion= new \UPT\Conexion();	
+  //Guardo mi dato del usuario que esta en sesion
 	$sesion= $_SESSION['Usuarios'];
-
+  //Mando a traer todo lo que me genere la consulta con la condicion dada
 	$publicacion = Publicacion::mostrarP($sesion);
 ?>
 <?php
+//con este foreach recorro los datos e inserto en los campos seleccionados
          foreach ($publicacion as $pos) {
-     ?> 
+?> 
  <div class="container h-100">   
              <h6>Id: <?php echo $pos['id_post']?></h6>
              <h2>Autor:<?php echo $pos['nombre_usuario']?></h2>
@@ -89,7 +95,9 @@
 
 			</div>
  </div> 
- <?php } ?>
+ <?php //se cierra el foreach 
+  } 
+  ?>
  <a href="index.php?controller=Publicaciones&action=Registro" class="btn-flotante">Nueva Publicacion</a>
 </body>
 </html>

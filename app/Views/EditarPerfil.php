@@ -21,11 +21,7 @@
 //llamo a la clase usuario
 use UPT\Usuario;
 require_once ("app/Models/Usuario.php");
-//Creo la conexion
-$conexion= new \UPT\Conexion();
 $sesion= $_SESSION['Usuarios'];
-//Por este valor elijo el id, el dato se recive de una URL
-$usuario = $_GET['no'];
 //Mando a traer todo lo que me genere la consulta con la condicion dada
 $usuario = Usuario::mostrar($sesion);
 ?>
