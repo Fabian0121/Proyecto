@@ -15,24 +15,20 @@
 <header>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	  <div class="navbar-header">
-      <h1>	<a class="navbar-brand" href="index.php?controller=Usuario&action=home">C-SPACE</a> </h1>
+      <h1>	<a class="navbar-brand" href="index.php?controller=Publicaciones&action=home">C-SPACE</a> </h1>
   	  </div>
   	  <p class="navbar-text pull-right">
          Conectado como <a href="index.php?controller=Usuario&action=perfil" class="navbar-link"><?php echo $_SESSION['Usuarios'] ?></a>
 	  </p>
 	</nav>
 </header>
-<?php
-//llamamos a la clase que se va a usar Publicacion
-use UPT\Publicacion;
-require_once ("app/Models/Publicacion.php");
-//Mando a traer todo lo que me genere la consulta
-$publicacion = Publicacion::mostrar();
-?>
 <body>	
 
 <?php
 //con este foreach recorro los datos e inserto en los campos correspondiete
+if (!isset($publicacion)){
+        echo "No hay publicaciones";
+}else{
          foreach ($publicacion as $pos) {
      ?> 
  <div class="container h-100">
@@ -51,6 +47,7 @@ $publicacion = Publicacion::mostrar();
  </div> 
  <?php //cierro la llave del foreach
     } 
+    }
     ?>
  
  <a href="index.php?controller=Publicaciones&action=Registro" class="btn-flotante">Nueva Publicacion</a>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Inicio sesion</title>
+    <title>Editar Perfil</title>
 
 
 
@@ -17,14 +17,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/login.css" th:href="@{/css/index.css}">
 
 </head>
-<?php
-//llamo a la clase usuario
-use UPT\Usuario;
-require_once ("app/Models/Usuario.php");
-$sesion= $_SESSION['Usuarios'];
-//Mando a traer todo lo que me genere la consulta con la condicion dada
-$usuario = Usuario::mostrar($sesion);
-?>
 <body>
 <div class="modal-dialog text-center">
     <div class="col-sm-8 main-section">
@@ -34,7 +26,7 @@ $usuario = Usuario::mostrar($sesion);
             </div>
             <?php
             //con este foreach recorro los datos e inserto en los input
-            foreach ($usuario as $us) {
+            foreach ($datos as $us) {
                 ?>
                 <form class="col-16" method="post" action="index.php?controller=Usuario&action=editarPerfil">
                     <div class="form-group"  >
@@ -69,7 +61,7 @@ $usuario = Usuario::mostrar($sesion);
 
                         <input type="password" class="form-control" placeholder="Contrasena" name="password"/>
                     </div>
-                    <a href="index.php?controller=Usuario&action=Inicio" class="btn btn-success"> Cancelar</a>
+                    <a href="index.php?controller=Publicaciones&action=home" class="btn btn-success"> Cancelar</a>
                     <input type="submit" class="btn btn-danger">
                 </form>
                 <?php

@@ -59,6 +59,19 @@ class Usuario extends Conexion
     	}
         return $usuario;
     }
+    //Funcion para mostrar los datos de una persona con id y editar perfil
+    static function mostrarEditar($dato)
+    {
+    	$conexion = new Conexion();
+    	$pre= mysqli_prepare($conexion->con, "SELECT * FROM usuario_datos WHERE id=?");
+        $pre-> bind_param("i",$dato);
+    	$pre->execute();
+    	$resultado = $pre->get_result();
+    	while ($objeto=mysqli_fetch_assoc($resultado)) {
+    		   $usuario[]=$objeto;
+    	}
+        return $usuario;
+    }
     //Funcion para eliminar a una persona de la BD
     function eliminar()
     {

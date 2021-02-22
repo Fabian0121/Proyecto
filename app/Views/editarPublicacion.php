@@ -14,16 +14,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/Publicacion.css" th:href="@{/css/index.css}">
 
 </head>
-<?php
-//llamo a la clase Publicacion
-    use UPT\Publicacion;
-    require_once ("app/Models/Publicacion.php");
-//Por este valor elijo el id, el dato se recive de una URL
-    $sesion= $_GET['no'];
-//Mando a traer todo lo que me genere la consulta con la condicion dada
-    $publicacion = Publicacion::mostrarEP($sesion);
-?>
-
 <body>
 <div class="modal-dialog text-center">
     <div class="col-sm-12 main-section">
@@ -59,7 +49,7 @@
                 <div class="form-group" id="contrasenia-group">
                     <input type="number" step="0.01" class="form-control" placeholder="Calificacion del libro" name="Calificacion" value="<?php echo $pos['calificacion']?>" >
                 </div>
-                <a href="index.php?controller=Usuario&action=Inicio" class="btn btn-success"> Cancelar</a>
+                <a href="index.php?controller=Publicaciones&action=home" class="btn btn-success"> Cancelar</a>
                 <input type="submit" class="btn btn-danger"> 
             </form>
             <?php

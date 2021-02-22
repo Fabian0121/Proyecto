@@ -35,6 +35,7 @@ class Publicacion extends Conexion
         $pre= mysqli_prepare($conexion->con, "SELECT * FROM publicaciones ORDER BY id_post DESC ");
         $pre->execute();
         $resultado = $pre->get_result();
+        $publicacion=[];
         while ($objeto=mysqli_fetch_assoc($resultado)) {
                $publicacion[]=$objeto;
         }
@@ -47,6 +48,7 @@ class Publicacion extends Conexion
         $pre= mysqli_prepare($conexion->con, "SELECT * FROM publicaciones WHERE nombre_usuario=? ORDER BY id_post DESC");
         $pre-> bind_param("s",$dato);
         $pre->execute();
+        $usuario=[];
         $resultado = $pre->get_result();
         while ($objeto=mysqli_fetch_assoc($resultado)) {
                $usuario[]=$objeto;

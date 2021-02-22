@@ -16,7 +16,7 @@
 <header>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	  <div class="navbar-header">
-    	<a class="navbar-brand" href="index.php?controller=Usuario&action=home">C-SPACE</a>
+    	<a class="navbar-brand" href="index.php?controller=Publicaciones&action=home">C-SPACE</a>
   	  </div>
   	  <p class="navbar-text pull-right">
       
@@ -55,9 +55,9 @@
             <p>Sexo: <?php echo $usua['Sexo']?></p><br>
             <p>Descripcion:<?php echo $usua['descripcion']?> </p><br>
             <div class="btn-group">
-  				<a href="index.php?controller=Usuario&action=Editar&no=<?php echo $usua['id'] ?>" <button type="button" class="btn btn-primary">Editar Perfil </a> </button>
+  				<a href="index.php?controller=Usuario&action=mostrarDatos&no=<?php echo $usua['id'] ?>" <button type="button" class="btn btn-primary">Editar Perfil </a> </button>
   				 
- 				<a href="index.php?controller=Usuario&action=eliminar&no=<?php echo $usua['id'] ?>"<button type="button" class="btn btn-warning">Eliminar Perfil </a></button>
+ 				<a href="index.php?controller=Usuario&action=mostrarDatos2&no=<?php echo $usua['id'] ?>"<button type="button" class="btn btn-warning">Eliminar Perfil </a></button>
 			</div>
  </div> 
  <?php //se cierra el foreach
@@ -73,6 +73,9 @@
 	$publicacion = Publicacion::mostrarP($sesion);
 ?>
 <?php
+if (!$publicacion) {
+  echo "No tiene publicaciones";
+}else{
 //con este foreach recorro los datos e inserto en los campos seleccionados
          foreach ($publicacion as $pos) {
 ?> 
@@ -89,13 +92,14 @@
          
              <p> Reseña<br><?php echo $pos['contenido']?></p>  
              <div class="btn-group">
-  				<a href="index.php?controller=Publicaciones&action=Editar&no=<?php echo $pos['id_post'] ?>" <button type="button" class="btn btn-primary">Editar Publicacion </a> </button>
+  				<a href="index.php?controller=Publicaciones&action=mostrarDatos&no=<?php echo $pos['id_post'] ?>" <button type="button" class="btn btn-primary">Editar Publicacion </a> </button>
   				 
- 				<a href="index.php?controller=Publicaciones&action=eliminar&no=<?php echo $pos['id_post'] ?>" <button type="button" class="btn btn-warning">Eliminar Publicacion </a> </button>
+ 				<a href="index.php?controller=Publicaciones&action=mostrarDatos2&no=<?php echo $pos['id_post'] ?>" <button type="button" class="btn btn-warning">Eliminar Publicacion </a> </button>
 
 			</div>
  </div> 
  <?php //se cierra el foreach 
+ }
   } 
   ?>
  <a href="index.php?controller=Publicaciones&action=Registro" class="btn-flotante">Nueva Publicacion</a>

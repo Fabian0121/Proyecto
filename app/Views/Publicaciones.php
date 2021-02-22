@@ -46,7 +46,7 @@
                 <div class="form-group" id="contrasenia-group">
                     <input type="number" step="0.01" class="form-control" placeholder="Calificacion del libro" name="Calificacion" required>
                 </div>
-                <a href="index.php?controller=Usuario&action=Inicio" class="btn btn-success   btn-lg"> Cancelar</a>
+                <a href="index.php?controller=Publicaciones&action=home" class="btn btn-success   btn-lg"> Cancelar</a>
                 <input type="submit" class="btn btn-primary">
             </form>
             <div class="col-16 forgot">

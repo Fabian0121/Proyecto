@@ -1,6 +1,8 @@
 <?php
 require 'app/Models/Conexion.php';
 require 'app/Models/Usuario.php';
+require 'app/Models/Publicacion.php';
+use UPT\Publicacion;
 use UPT\Usuario;
 use UPT\Conexion;
 class UsuarioController 
@@ -42,8 +44,18 @@ class UsuarioController
  		header("Location:/Proyecto/index.php?controller=Usuario&action=login");
 
 	}
-	
-
+	//Muestra los datos en el apartado de editar perfil
+	function mostrarDatos(){
+		$dato=$_GET['no'];
+		$datos = Usuario::mostrarEditar($dato);
+		require 'app/Views/editarPerfil.php';
+	}
+	//Muestra los datos en el apartado de eliminar perfil
+	function mostrarDatos2(){
+		$dato=$_GET['no'];
+		$datos = Usuario::mostrarEditar($dato);
+		require 'app/Views/eliminarP.php';
+	}
 	//Con esta funcion llamo a la venta Pinicio que es la que se muestra al entrar
 	public function vistahome (){
 		require "app/Views/Pinicio.php";
@@ -71,7 +83,7 @@ class UsuarioController
            
  		   // $_SESSION['Usuarios']=$verificar;
         	$_SESSION['Usuarios']=$nomUsuario;
-            require "app/Views/Inicio.php";
+            header("Location:/Proyecto/index.php?controller=Publicaciones&action=home");
         }
 
 	}
@@ -89,11 +101,9 @@ class UsuarioController
 
 	//llamo a la vista perfil
     function perfil (){
+    	 $dato=$_SESSION['Usuarios'];
+		 $datos = Usuario::mostrar($dato);
     	 require "app/Views/Perfil.php";
-    }
-    //llamo a la vista editar para perfil
-    function editar(){
-    	require "app/Views/EditarPerfil.php";
     }
     //Funcion para editar perfil
     function editarPerfil(){
@@ -112,15 +122,11 @@ class UsuarioController
  		$usuario->id=$_POST['id'];
  		$usuario->contrasenia['password'];
  		$usuario->editarUsuario();
-        header("Location:/Proyecto/index.php?controller=Usuario&action=Perfil");	
+        header("Location:/Proyecto/index.php?controller=Publicaciones&action=home");	
     }
     //Mando a la pantalla inicio
     function home(){
     	require "app/Views/Inicio.php";
-    }
-    //LLamo a la vista eliminar Perfil
-    function eliminar(){
-    	require "app/Views/eliminarP.php";
     }
     //Llamo a eliminar Perfil para borrarlo
     function eliminarPer(){

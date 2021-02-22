@@ -14,16 +14,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/Publicacion.css" th:href="@{/css/index.css}">
 
 </head>
-<?php
-//llamo a la clase Publicacion
-    use UPT\Publicacion;
-    require_once ("app/Models/Publicacion.php");
-//Por este valor elijo el id, el dato se recive de una URL
-    $sesion= $_GET['no'];
-//Mando a traer todo lo que me genere la consulta con la condicion dada
-    $publicacion = Publicacion::mostrarEP($sesion);
-?>
-
 <body>
 <div class="modal-dialog text-center">
     <div class="col-sm-12 main-section">
